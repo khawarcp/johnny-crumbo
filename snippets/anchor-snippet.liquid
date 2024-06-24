@@ -1,0 +1,5 @@
+{% if button_text != blank %}    
+<a href="{{ button_url | default: "#" }}" {% if title %} title="{{ title }}" {% endif %} {% if class %}
+        class="{{ class }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% else %} class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    {% endif %}> {{ button_text }} </a>
+{% endif %}

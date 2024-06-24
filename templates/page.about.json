@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "about-banner": {
+      "type": "about-banner",
+      "settings": {
+      }
+    },
+    "about-marquee": {
+      "type": "about-marquee",
+      "settings": {
+      }
+    },
+    "about-richtext": {
+      "type": "about-richtext",
+      "settings": {
+      }
+    },
+    "about-founder": {
+      "type": "about-founder",
+      "settings": {
+      }
+    },
+    "about-mission": {
+      "type": "about-mission",
+      "settings": {
+      }
+    },
+    "about-video": {
+      "type": "about-video",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "about-banner",
+    "about-marquee",
+    "about-richtext",
+    "about-founder",
+    "about-mission",
+    "about-video"
+  ]
+}

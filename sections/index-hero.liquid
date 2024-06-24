@@ -1,0 +1,65 @@
+<section class="collection-banner-section">
+    <div class="collection-banner-bg">
+        <img src="./images/inner-banner.png" alt="Image">
+    </div>
+    <div class="collection-banner-main">
+        <div class="container"> 
+            <div class="collection-banner-content">
+                <h6>T-Shirt</h6>
+                <h2>Johny Crumbo T-Shirt</h2>
+                <a href="#.">
+                    Buy Now
+                    <span>
+                        {% render 'button-arrow' %}
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name" : "Hero",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Johny Crumbo T-Shirt"
+            },
+            {
+                "type": "text",
+                "id": "subheading",
+                "label": "Subheading",
+                "default": "T-Shirt"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Buy Now"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Hero"
+            }
+        ]
+    }
+{% endschema %}

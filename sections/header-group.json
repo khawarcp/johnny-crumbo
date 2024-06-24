@@ -8,45 +8,41 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Products for Everyday Fun",
-            "link": ""
-          }
-        },
-        "59d98bef-ec50-498c-b73f-9b3a1e7ee9ec": {
-          "type": "announcement",
-          "disabled": true,
-          "settings": {
-            "text": "Welcome to the Johnny Crumbo Store",
+            "text": "FREE SHIPPING ON $100+ DOMESTIC ORDERS",
             "link": ""
           }
         }
       },
       "block_order": [
-        "announcement-bar-0",
-        "59d98bef-ec50-498c-b73f-9b3a1e7ee9ec"
+        "announcement-bar-0"
       ],
       "settings": {
-        "color_scheme": "background-1",
+        "color_scheme": "scheme-3",
         "show_line_separator": true,
+        "show_social": false,
         "auto_rotate": false,
-        "change_slides_speed": 5
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
       }
     },
     "header": {
       "type": "header",
       "settings": {
         "logo_position": "middle-center",
-        "menu": "main-menu",
+        "menu": "header-menu",
         "menu_type_desktop": "dropdown",
-        "sticky_header_type": "reduce-logo-size",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
-        "color_scheme": "background-1",
+        "color_scheme": "scheme-2",
+        "menu_color_scheme": "scheme-1",
         "enable_country_selector": true,
         "enable_language_selector": true,
+        "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
-        "padding_top": 4,
-        "padding_bottom": 4
+        "padding_top": 20,
+        "padding_bottom": 20
       }
     }
   },

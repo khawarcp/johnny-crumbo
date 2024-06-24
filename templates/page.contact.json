@@ -1,25 +1,24 @@
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "page-banner": {
+      "type": "page-banner",
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
-    "form": {
-      "type": "contact-form",
+    "contact-image-form": {
+      "type": "contact-image-form",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+      }
+    },
+    "contact-options": {
+      "type": "contact-options",
+      "settings": {
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "page-banner",
+    "contact-image-form",
+    "contact-options"
   ]
 }

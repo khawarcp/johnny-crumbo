@@ -1,0 +1,60 @@
+<section class="home-welcome-section bg-sky">
+    <div class="container">
+        <div class="home-welcome-main">
+            <div class="home-welcome-flex flex-class">
+                <div class="home-welcome-left">
+                    <h2>Welcome to Johnny Crumbo!</h2>
+                </div>
+                <div class="home-welcome-right">
+                    <div class="home-welcome-content">
+                        <p>We're more than just a clothing brand - we're on a mission to make a difference. A percentage of every purchase goes towards supporting organizations dedicated to the welfare of cats and dogs. With your help, we can ensure that every pet receives the care and love they deserve.</p>
+                        <p>Join us in our cause and shop now to make a difference in the lives of our furry friends. Together, let's create a world where every pet has a warm bed & a loving home.</p>
+                    </div>
+                    <div class="home-welcome-readmore">
+                        <a href="#.">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% schema %}
+    {
+        "name" : "Richtext",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Welcome to Johnny Crumbo!"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Shop Now"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Richtext"
+            }
+        ]
+    }
+{% endschema %}

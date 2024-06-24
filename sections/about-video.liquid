@@ -1,0 +1,21 @@
+<section class="about-video-section">
+    <div class="about-video-main">
+        <div class="about-video-container">
+            <video poster="./images/video-poster.png" id="about-video" controls>
+                <source src="./video/dummy-video.mp4">
+            </video>
+            <div class="video-play-button">
+                <button type="button" onclick="playVideo()">
+                    <img src="./images/play-icon.svg" alt="Play">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name" : "Video",
+        "settings": []
+    }
+{% endschema %}

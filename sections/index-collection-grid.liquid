@@ -1,0 +1,117 @@
+<section class="collection-grid-section">
+    <div class="collection-grid-main">
+        <div class="collection-grid-head section-head">
+            <h2 class="black">Sale Up to 50%</h2>
+        </div>
+        <div class="collection-grid-flex flex-class">
+            <div class="collection-grid-box">
+                <div class="collection-grid-bg">
+                    <img src="./images/collection-1.png" alt="Image">
+                </div>
+                <div class="collection-grid-product-info">
+                    <h6>t-shirt</h6>
+                    <h2>Johny Crumbo T-Shirt</h2>
+                    <a href="#."> 
+                        Buy Now
+                        <span>
+                            {% render 'button-arrow' %}
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="collection-grid-box">
+                <div class="collection-grid-bg">
+                    <img src="./images/collection-2.png" alt="Image">
+                </div>
+                <div class="collection-grid-product-info">
+                    <h6>t-shirt</h6>
+                    <h2>Johny Crumbo T-Shirt</h2>
+                    <a href="#."> 
+                        Buy Now
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3.6001 10.232L4.24911 10.7999L8.1432 6.47316L8.4001 6.18922L8.1432 5.90528L4.24911 1.57852L3.6001 2.1464L7.23728 6.18922L3.6001 10.232Z" fill="#71C7F8" stroke="#71C7F8" stroke-width="0.5"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="collection-grid-box">
+                <div class="collection-grid-bg">
+                    <img src="./images/collection-3.png" alt="Image">
+                </div>
+                <div class="collection-grid-product-info">
+                    <h6>t-shirt</h6>
+                    <h2>Johny Crumbo T-Shirt</h2>
+                    <a href="#."> 
+                        Buy Now
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                <path d="M3.6001 10.232L4.24911 10.7999L8.1432 6.47316L8.4001 6.18922L8.1432 5.90528L4.24911 1.57852L3.6001 2.1464L7.23728 6.18922L3.6001 10.232Z" fill="#71C7F8" stroke="#71C7F8" stroke-width="0.5"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name" : "Collection Grid",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "Heading",
+                "default": "Sale Up to 50%"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Block",
+                "type": "block" ,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "heading",
+                        "label": "Title",
+                        "default": "Johny Crumbo T-Shirt"
+                    },
+                    {
+                        "type": "text",
+                        "id": "subtitle",
+                        "label": "Subtitle",
+                        "default": "T-Shirt"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Button"
+                    },
+                    {
+                        "type": "text",
+                        "id": "button_text",
+                        "label": "Button Text",
+                        "default": "Buy Now"
+                    },
+                    {
+                        "type": "url",
+                        "id": "button_url",
+                        "label": "Button URL"
+                    }
+                ]  
+            }
+        ],
+        "presets": [
+            {
+                "name": "Collection Grid"
+            }
+        ]
+    }
+{% endschema %}

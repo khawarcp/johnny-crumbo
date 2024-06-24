@@ -1,0 +1,68 @@
+<section class="hero-banner-section" style="background-image: url(./images/banner-without-overlay.png);">
+<div class="container">
+    <div class="hero-banner-main">
+        <div class="hero-banner-flex flex-class">
+            <div class="hero-banner-left">
+                <div class="hero-banner-content">
+                    <h1>cheeky merch inspired by <span>four-legged</span> friends</h1>
+                    <p>Shop cozy hoodies, stylish caps and shirts, we've got everything you need to show off your passion for pets.</p>
+                    <a href="#.">Shop Now</a>
+                </div>
+            </div>
+            <div class="hero-banner-right">
+                <div class="banner-stripes">
+                    <img src="./images/banner-stripes.png" alt="Image">
+                </div>
+                <div class="banner-person">
+                    <img src="./images/banner-person.png" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+{% schema %}
+    {
+        "name" : "Banner",
+        "settings": [
+            {
+                "type": "html",
+                "id": "heading",
+                "label": "Heading",
+                "default": "cheeky merch inspired by <span>four-legged</span> friends"
+            },
+            {
+                "type": "inline_richtext",
+                "id": "subheading",
+                "label": "Subheading",
+                "default": "Shop cozy hoodies, stylish caps and shirts, we've got everything you need to show off your passion for pets."
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Shop Now"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Banner"
+            }
+        ]
+    }
+{% endschema %}
