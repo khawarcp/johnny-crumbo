@@ -2,37 +2,104 @@
     <div class="contact-form-main">
         <div class="contact-form-flex flex-class">
             <div class="contact-form-left">
-                <div class="contact-form-image">
-                    <img src="./images/contact.png" alt="Image">
+                <div class="contact-form-image {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                    {% render 'image-snippet', image: section.settings.image, lazyload: 'lazy'  %}
                 </div>
             </div>
             <div class="contact-form-right">
                 <div class="contact-form-container">
-                    <div class="contact-form-head">
-                        <h2>How can we help you?</h2>
+                    <div class="contact-form-head {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">                      
+                            <h2>
+                                {{ 'templates.contact.form.title' | t }}
+                            </h2>
                     </div>
-                    <form action="">
+                    {%- liquid
+                    assign contact_form_class = 'isolate'
+                    if settings.animations_reveal_on_scroll
+                      assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+                    endif
+                  -%}
+                  {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+                    {%- if form.posted_successfully? -%}
+                        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+                          {% render 'icon-success' %}
+                          {{ 'templates.contact.form.post_success' | t }}
+                        </h2>
+                      {%- elsif form.errors -%}
+                        <div class="form__message">
+                          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+                            {% render 'icon-error' %}
+                            {{ 'templates.contact.form.error_heading' | t }}
+                          </h2>
+                        </div>
+                        <ul class="form-status-list caption-large" role="list">
+                          <li>
+                            <a href="#ContactForm-email" class="link">
+                              {{ form.errors.translated_fields.email | capitalize }}
+                              {{ form.errors.messages.email }}
+                            </a>
+                          </li>
+                        </ul>
+                      {%- endif -%}
                         <div class="form-field">
-                            <input type="text" placeholder="First name">
+                            <input type="text" autocomplete="first_name"
+                            type="text"
+                            id="ContactForm-first_name"
+                            name="contact[first_name]"
+                            value="{% if form.name %}{{ form.first_name }}{% elsif customer %}{{ customer.first_name }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.name' | t }}">
                         </div>
                         <div class="form-field">
-                            <input type="text" placeholder="Last name">
+                            <input type="text" placeholder="Last name"
+                            autocomplete="last_name"
+                            type="text"
+                            id="ContactForm-last_name"
+                            name="contact[Last name]"
+                            value="{% if form.name %}{{ form.last_name }}{% elsif customer %}{{ customer.last_name }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.name' | t }}">
                         </div>
                         <div class="form-field">
-                            <input type="email" placeholder="Email address">
+                            <input type="email" autocomplete="email"
+                            id="ContactForm-email"
+                            name="contact[email]"
+                            spellcheck="false"
+                            autocapitalize="off"
+                            value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                            aria-required="true"
+                            {% if form.errors contains 'email' %}
+                            aria-invalid="true"
+                            aria-describedby="ContactForm-email-error"
+                            {% endif %}
+                            placeholder="{{ 'templates.contact.form.email' | t }}">
+                            {%- if form.errors contains 'email' -%}
+                                <small class="contact__field-error" id="ContactForm-email-error">
+                                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                                  <span class="form__message">
+                                    {%- render 'icon-error' -%}
+                                    {{- form.errors.translated_fields.email | capitalize }}
+                                    {{ form.errors.messages.email -}}
+                                  </span>
+                                </small>
+                              {%- endif -%}
                         </div>
                         <div class="form-field">
-                            <input type="tel" placeholder="phone number">
+                            <input type="tel" id="ContactForm-phone"
+                            autocomplete="tel"
+                            name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                            pattern="[+0-9\-]*"
+                            value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                            placeholder="{{ 'templates.contact.form.phone' | t }}">
                         </div>
                         <div class="form-message-field">
-                            <textarea placeholder="Your message"></textarea>
+                            <textarea id="ContactForm-body"
+                            name="contact[{{ 'templates.contact.form.comment' | t }}]" placeholder="{{- 'templates.contact.form.comment' | t -}}">{{- form.body -}}</textarea>
                         </div>
                         <div class="form-submit-button">
                             <button type="submit">
-                                <span>submit</span>
+                                <span>{{ 'templates.contact.form.send' | t }}</span>
                             </button>
                         </div>
-                    </form>
+                    {%- endform -%}
                 </div>
             </div>
         </div>
@@ -42,6 +109,18 @@
 {% schema %}
     {
         "name" : "Image with Form",
-        "settings": []
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "form_heading",
+                "label": "Form Heading",
+                "default": "How can we help you?"
+            }
+        ]
     }
 {% endschema %}

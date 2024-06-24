@@ -1,6 +1,6 @@
 <section class="about-video-section">
     <div class="about-video-main">
-        <div class="about-video-container">
+        <div class="about-video-container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             {% assign video_sources =  section.settings.video.sources %}
             {% assign video_url = "" %}
 

@@ -3,16 +3,29 @@
     "page-banner": {
       "type": "page-banner",
       "settings": {
+        "show_custom_title": false,
+        "custom_title": "Page Title",
+        "show_custom_description": false,
+        "custom_info": "<p>We love to hear from our customers. Whether you have questions, comments, suggestions, please do not hesitate to reach out.<\/p>",
+        "bg_image": "shopify:\/\/shop_images\/banner-without-overlay.png",
+        "show_custom_image": true,
+        "image": "shopify:\/\/shop_images\/collection-banner.png"
       }
     },
     "contact-image-form": {
       "type": "contact-image-form",
       "settings": {
+        "image": "shopify:\/\/shop_images\/collection-1.png",
+        "form_heading": "How can we help you?"
       }
     },
     "contact-options": {
       "type": "contact-options",
       "settings": {
+        "mail_heading": "Email Us",
+        "email": "ikonik@gmail.com",
+        "phone_heading": "Contact Us",
+        "number": "(01) 123 123 1"
       }
     }
   },

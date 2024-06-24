@@ -1,41 +1,80 @@
-<section class="contact-options-section">
-    <div class="container">
-        <div class="contact-options-main">
-            <div class="contact-options-flex flex-class">
-                <div class="contact-option-single">
-                    <div class="single-option-flex flex-class">
-                        <div class="option-icon">
-                            <a href="tel:(01) 123 123 1">
-                                <img src="./images/phone.svg" alt="Icon">
-                            </a>
-                        </div>
-                        <div class="option-name">
-                            <h6>Contact Us</h6>
-                            <h2><a href="tel:(01) 123 123 1">(01) 123 123 1</a></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-option-single">
-                    <div class="single-option-flex flex-class">
-                        <div class="option-icon">
-                            <a href="mailto:ikonik@gmail.com">
-                                <img src="./images/mail.svg" alt="Icon">
-                            </a>
-                        </div>
-                        <div class="option-name">
-                            <h6>Email Us</h6>
-                            <h2><a href="mailto:ikonik@gmail.com">ikonik@gmail.com</a></h2>
+{% unless section.settings.number == blank and section.settings.email == blank %}
+    <section class="contact-options-section">
+        <div class="container">
+            <div class="contact-options-main">
+                <div class="contact-options-flex flex-class">
+                    {% if section.settings.number != blank %}  
+                    <div class="contact-option-single {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                        <div class="single-option-flex flex-class">
+                            <div class="option-icon">
+                                <a href="tel:{{ section.settings.number }}">
+                                    {% render 'image-snippet-np', image: 'phone.svg', alt: 'Phone Icon' assetURL: true, lazyload: 'lazy'  %}
+                                </a>
+                            </div>
+                            <div class="option-name">
+                                <h6> {{ section.settings.phone_heading }} </h6>
+                                <h2><a href="tel:{{ section.settings.number }}">{{ section.settings.number }}</a></h2>
+                            </div>
                         </div>
                     </div>
+                    {% endif %}
+                    {% if section.settings.email != blank %}                    
+                        <div class="contact-option-single {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                            <div class="single-option-flex flex-class">
+                                <div class="option-icon">
+                                    <a href="mailto:{{ section.settings.email }}">
+                                        {% render 'image-snippet-np', image: 'mail.svg', alt: 'Email Icon' assetURL: true, lazyload: 'lazy'  %}
+                                    </a>
+                                </div>
+                                <div class="option-name">
+                                    <h6>{{ section.settings.mail_heading }}</h6>
+                                    <h2><a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a></h2>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+{% endunless %}
 
 {% schema %}
     {
         "name" : "Contact Options",
-        "settings": []
+        "settings": [
+            {
+                "type": "header",
+                "content": "Email Address"
+            },
+            {
+                "type": "text",
+                "id": "mail_heading",
+                "label": "Heading",
+                "default": "Email Us"
+            },
+            {
+                "type": "text",
+                "id": "email",
+                "label": "Email",
+                "default": "ikonik@gmail.com"
+            },
+            {
+                "type": "header",
+                "content": "Phone Number"
+            },
+            {
+                "type": "text",
+                "id": "phone_heading",
+                "label": "Heading",
+                "default": "Contact Us"
+            },
+            {
+                "type": "text",
+                "id": "number",
+                "label": "Number",
+                "default": "(01) 123 123 1"
+            }
+        ]
     }
 {% endschema %}

@@ -5,12 +5,12 @@
             <div class="hero-banner-left">
                 <div class="hero-banner-content">
                     {% if section.settings.heading %}                        
-                        <h1>
+                        <h1 class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                             {{ section.settings.heading }}
                         </h1>
                     {% endif %}
                     {% if section.settings.subheading != blank %}                        
-                        <p>
+                        <p class="{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                             {{ section.settings.subheading }}
                         </p>
                     {% endif %}
@@ -21,7 +21,7 @@
                 <div class="banner-stripes">
                     {% render 'image-snippet-np', image: 'banner-stripes.png' , assetURL: true, lazyload: 'eager'  %}
                 </div>
-                <div class="banner-person">
+                <div class="banner-person {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                     {% render 'image-snippet', image: section.settings.image, lazyload: 'eager'  %}
                 </div>
             </div>

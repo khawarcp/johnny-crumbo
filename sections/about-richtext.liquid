@@ -2,7 +2,7 @@
 <section class="about-jon-section bg-sky">
     <div class="container">
         <div class="about-jon-main">
-            <div class="about-jon-content">
+            <div class="about-jon-content {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 {{ section.settings.text }}
             </div>
         </div>

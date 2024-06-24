@@ -1,19 +1,33 @@
-<section class="coll-banner-section" style="background-image: url(./images/banner-without-overlay.png);">
+<section class="coll-banner-section {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="background-image: url('{{ section.settings.bg_image | image_url }}');">
 <div class="container">
     <div class="coll-banner-main">
         <div class="coll-banner-flex flex-class">
             <div class="coll-banner-left">
                 <div class="coll-banner-content">
-                    <h1>CONTACT US</h1>
-                    <p>We love to hear from our customers. Whether you have questions, comments, suggestions, please do not hesitate to reach out.</p>
+                    {% if section.settings.show_custom_title and section.settings.custom_title != blank %}
+                        <h1>{{- section.settings.custom_title -}}</h1>
+                    {% else %}                        
+                    <h1> {{- page_title -}} </h1>
+                    {% endif %}
+                    <div class="richtext-content">
+                        {% if section.settings.show_custom_description and section.settings.custom_info != blank %}
+                           {{ section.settings.custom_info }}
+                        {% else %}                        
+                            {{ page_description }} 
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             <div class="coll-banner-right">
                 <div class="banner-stripes">
-                    <img src="./images/banner-stripes.png" alt="Image">
+                    {% render 'image-snippet-np', image: 'banner-stripes.png' , assetURL: true, lazyload: 'eager'  %}
                 </div>
                 <div class="coll-banner-image">
-                    <img src="./images/collection-banner.png" alt="Image">
+                    {% if section.settings.show_custom_image and section.settings.image != blank %}
+                        {% render 'image-snippet', image: section.settings.image, lazyload: 'eager'  %}
+                     {% else %}                        
+                          {% render 'image-snippet', image: page_image, lazyload: 'eager'  %}
+                     {% endif %}
                 </div>
             </div>
         </div>
@@ -21,10 +35,50 @@
 </div>
 </section>
 
-
 {% schema %}
     {
         "name" : "Page Banner",
-        "settings": []
+        "settings": [
+            {
+                "type": "checkbox",
+                "id": "show_custom_title",
+                "label": "Show Custom Title",
+                "default": false
+            },
+            {
+                "type": "text",
+                "id": "custom_title",
+                "label": "Custom Title",
+                "default": "Page Title"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_custom_description",
+                "label": "Show Custom Description",
+                "default": false
+            },
+            {
+                "type": "richtext",
+                "id": "custom_info",
+                "label": "Custom Description",
+                "default": "<p>We love to hear from our customers. Whether you have questions, comments, suggestions, please do not hesitate to reach out.</p>"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_image",
+                "label": "Background Image"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_custom_image",
+                "label": "Show Custom Image",
+                "default": false
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+        ]
     }
 {% endschema %}

@@ -13,7 +13,11 @@
         <div class="blogs-container">
             <div class="blogs-flex flex-class">
                 {% for article in blog.articles %}                  
-                    <div class="blog-single">
+                    <div class="blog-single {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {{ block.shopify_attributes }}
+                        {% if settings.animations_reveal_on_scroll %}
+                            data-cascade
+                            style="--animation-order: {{ forloop.index }};"
+                          {% endif %}>
                         <a href="{{ article.url }}">
                             <div class="blog-featured-image">
                                 {% render 'image-snippet', image: article.image, lazyload: 'lazy'  %}
@@ -48,7 +52,7 @@
                     </div>
                 {% endfor %}
             </div>
-            <div class="blogs-see-all">
+            <div class="blogs-see-all {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 <a href="{{ section.settings.button_url | default: blog.url }}">
                    <span>{{ section.settings.button_text }}</span>
                 </a>

@@ -1,6 +1,6 @@
 <section class="home-welcome-section bg-sky">
     <div class="container">
-        <div class="home-welcome-main">
+        <div class="home-welcome-main {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             <div class="home-welcome-flex flex-class">
                 <div class="home-welcome-left">                    
                     {% if section.settings.heading %}                        
