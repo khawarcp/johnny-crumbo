@@ -15,8 +15,13 @@
       "type": "index-collection",
       "settings": {
         "class": "",
-        "heading": "Sale Up to 50%",
-        "collection": ""
+        "heading": "meet our best sellers",
+        "collection": "accessories",
+        "button_text": "View More",
+        "button_url": "",
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard"
       }
     },
     "index_richtext_DmXnnw": {
@@ -75,8 +80,13 @@
       "type": "index-collection",
       "settings": {
         "class": "feature-collection-second",
-        "heading": "Sale Up to 50%",
-        "collection": ""
+        "heading": "Meet our best sellers",
+        "collection": "kids",
+        "button_text": "View More",
+        "button_url": "",
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard"
       }
     },
     "index_testimonials_9dfCty": {

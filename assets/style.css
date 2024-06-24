@@ -1289,7 +1289,7 @@ p {
     text-transform: uppercase;
 }
 
-.coll-banner-content p {
+.coll-banner-content .richtext-content p {
     margin: 16px 0px 32px;
     color: var(--black);
     font-size: 14px;
@@ -2277,7 +2277,7 @@ p {
     margin: 0px;
 }
 
-.coll-banner-content p:last-child {
+.coll-banner-content :not(.richtext-content) p:last-child {
     margin-bottom: 0px;
 }
 

@@ -1,0 +1,101 @@
+{% if collection.url contains '/collections/all' %}
+<section class="coll-banner-section" style="background-image: url('{{ 'banner-without-overlay.png' | asset_url }}');">
+<div class="container">
+    <div class="coll-banner-main">
+        <div class="coll-banner-flex flex-class">
+            <div class="coll-banner-left">
+                <div class="coll-banner-content">
+                    <h1> {{- section.settings.title -}} </h1>                    
+                    <div class="richtext-content">
+                        {{ section.settings.description }}
+                    </div>
+                    {% assign button_url = section.settings.button_url | default: routes.all_products_collection_url %}
+                    {% render 'anchor-snippet', button_text: section.settings.button_text, button_url:button_url, show_arrow: false %}
+                </div>
+            </div>
+            <div class="coll-banner-right">
+                <div class="banner-stripes">
+                    {% render 'image-snippet-np', image: 'banner-stripes.png' , assetURL: true, lazyload: 'eager'  %}
+                </div>
+                <div class="coll-banner-image">
+                    {% render 'image-snippet-np', image: section.settings.image , imageURL: true, lazyload: 'eager'  %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% else %}
+<section class="coll-banner-section" style="background-image: url('{{ 'banner-without-overlay.png' | asset_url }}');">
+<div class="container">
+    <div class="coll-banner-main">
+        <div class="coll-banner-flex flex-class">
+            <div class="coll-banner-left">
+                <div class="coll-banner-content">
+                    <h1> {{- collection.title -}} </h1>
+                    <div class="richtext-content">
+                        {{ collection.description }}
+                    </div>
+                    {% render 'anchor-snippet', button_text: section.settings.button_text, button_url:button_url, show_arrow: false %}
+                </div>
+            </div>
+            <div class="coll-banner-right">
+                <div class="banner-stripes">
+                    {% render 'image-snippet-np', image: 'banner-stripes.png' , assetURL: true, lazyload: 'eager'  %}
+                </div>
+                <div class="coll-banner-image">
+                    {% render 'image-snippet-np', image: collection.image.src , imageURL: true, lazyload: 'eager'  %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% schema %}
+    {
+        "name" : "Page Banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Normal Collection"
+            },
+            {
+                "type": "header",
+                "content": "All Products"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Shop Now"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description",
+                "default": "<p>Shop cozy hoodies, stylish caps and shirts, we've got everything you need to show off your passion for pets.</p>"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "Shop all products"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            }
+        ]
+    }
+{% endschema %}

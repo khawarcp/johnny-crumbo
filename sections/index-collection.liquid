@@ -1,9 +1,33 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- unless section.settings.quick_add == 'none' -%}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
+  {%- endunless -%}
+  
+  {%- if section.settings.quick_add == 'standard' -%}
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+  
+  {%- if section.settings.quick_add == 'bulk' -%}
+    <script src="{{ 'quick-add-bulk.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+
 <section class="feature-collection-section {{ section.settings.class }}">
-    <div class="collection-main">
+    <div class="collection-main {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <div class="collection-head section-head">
-            <h2 class="black">meet our best sellers</h2>
+            {% if section.settings.heading %}                        
+                <h2 class="black">
+                    {{ section.settings.heading }}
+                </h2>
+            {% endif %}
         </div>
-        <div class="collection-slider-controller">
+        <div class="collection-slider-controller {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             <div class="collection-slider-arrows">
                 <div class="swiper-button-prev">
                     {% render 'slider-prev-arrow' %}
@@ -14,336 +38,46 @@
                 </div>
             </div>
         </div>
-        <div class="collection-container">
+        <div class="collection-container {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
             <div class="collection-slider swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                    {% assign collection = section.settings.collection %}
+                    {%- if collection.products.size == 0 -%}
+                        <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+                          <div class="loading-overlay gradient"></div>
+                          <div class="title-wrapper center">
+                            <h2 class="title title--primary">
+                              {{ 'sections.collection_template.empty' | t -}}
+                              <br>
+                              {{
+                                'sections.collection_template.use_fewer_filters_html'
+                                | t: link: collection.url, class: 'underlined-link link'
+                              }}
+                            </h2>
+                          </div>
                         </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-1.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo Cap (Black)</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="collection-slide swiper-slide">
-                        <div class="collection-card">
-                            <a href="#.">
-                                <div class="product-card-image">
-                                    <img src="./images/product-2.png" alt="Image">
-                                    <div class="product-card-form">
-                                        <form method="post">
-                                            <button type="button">quick view</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="card-product-info">
-                                    <div class="card-product-info-flex flex-class">
-                                        <div class="card-product-info-left">
-                                            <h5>Johny Crumbo T-Shirt</h5>
-                                            <h6>Johny Crumbo</h6>
-                                        </div>
-                                        <div class="card-product-info-right">
-                                            <div class="card-product-price">
-                                                <span>$42</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                      {%- else -%}                       
+                        {% for product in collection.products %} 
+                            {% assign lazy_load = false %}
+                            {%- if forloop.index > 2 -%}
+                              {%- assign lazy_load = true -%}
+                            {%- endif -%}
+                            <div class="collection-slide swiper-slide">
+                                {% render 'custom-product-card', card_product: product,
+                                show_vendor: section.settings.show_vendor,
+                                show_rating: section.settings.show_rating,
+                                lazy_load: lazy_load,
+                                skip_styles: skip_card_product_styles,
+                                quick_add: section.settings.quick_add,
+                                section_id: section.id %}
+                            </div>      
+                            {%- assign skip_card_product_styles = true -%}                     
+                        {% endfor %} 
+                    {% endif %}
                 </div>
                 <div class="collection-view-more">
-                    <a href="#.">View More</a>
+                    {% assign button_url = section.settings.button_url | default: collection.url %}
+                    {% render 'anchor-snippet', button_text: section.settings.button_text, button_url: button_url, show_arrow: false %}
                 </div>
             </div>
         </div>
@@ -369,6 +103,59 @@
                 "type": "collection",
                 "id": "collection",
                 "label": "Collection"
+            },
+            {
+                "type": "header",
+                "content": "Button"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button Text",
+                "default": "View More"
+            },
+            {
+                "type": "url",
+                "id": "button_url",
+                "label": "Button URL"
+            },
+            {
+                "type" : "header",
+                "content" : "Product Card"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_vendor",
+                "default": false,
+                "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_rating",
+                "default": false,
+                "label": "t:sections.main-collection-product-grid.settings.show_rating.label",
+                "info": "t:sections.main-collection-product-grid.settings.show_rating.info"
+            },
+            {
+                "type": "select",
+                "id": "quick_add",
+                "default": "none",
+                "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+                "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+                "options": [
+                    {
+                        "value": "none",
+                        "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+                    },
+                    {
+                        "value": "standard",
+                        "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+                    },
+                    {
+                        "value": "bulk",
+                        "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+                    }
+                ]
             }
         ],
         "presets": [
