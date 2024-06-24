@@ -1,20 +1,28 @@
-<section class="hero-banner-section" style="background-image: url(./images/banner-without-overlay.png);">
+<section class="hero-banner-section" style="background-image: url('{{ section.settings.bg_image | image_url }}');">
 <div class="container">
     <div class="hero-banner-main">
         <div class="hero-banner-flex flex-class">
             <div class="hero-banner-left">
                 <div class="hero-banner-content">
-                    <h1>cheeky merch inspired by <span>four-legged</span> friends</h1>
-                    <p>Shop cozy hoodies, stylish caps and shirts, we've got everything you need to show off your passion for pets.</p>
-                    <a href="#.">Shop Now</a>
+                    {% if section.settings.heading %}                        
+                        <h1>
+                            {{ section.settings.heading }}
+                        </h1>
+                    {% endif %}
+                    {% if section.settings.subheading != blank %}                        
+                        <p>
+                            {{ section.settings.subheading }}
+                        </p>
+                    {% endif %}
+                    {% render 'anchor-snippet', button_text: section.settings.button_text, button_url: section.settings.button_url, show_arrow: false %}
                 </div>
             </div>
             <div class="hero-banner-right">
                 <div class="banner-stripes">
-                    <img src="./images/banner-stripes.png" alt="Image">
+                    {% render 'image-snippet-np', image: 'banner-stripes.png' , assetURL: true, lazyload: 'eager'  %}
                 </div>
                 <div class="banner-person">
-                    <img src="./images/banner-person.png" alt="Image">
+                    {% render 'image-snippet', image: section.settings.image, lazyload: 'eager'  %}
                 </div>
             </div>
         </div>
@@ -42,6 +50,11 @@
                 "type": "image_picker",
                 "id": "image",
                 "label": "Image"
+            },
+            {
+                "type": "image_picker",
+                "id": "bg_image",
+                "label": "Background Image"
             },
             {
                 "type": "header",

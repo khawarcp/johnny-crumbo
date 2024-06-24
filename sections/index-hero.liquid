@@ -1,18 +1,21 @@
 <section class="collection-banner-section">
     <div class="collection-banner-bg">
-        <img src="./images/inner-banner.png" alt="Image">
+        {% render 'image-snippet', image: section.settings.image, lazyload: 'lazy'  %}
     </div>
     <div class="collection-banner-main">
         <div class="container"> 
             <div class="collection-banner-content">
-                <h6>T-Shirt</h6>
-                <h2>Johny Crumbo T-Shirt</h2>
-                <a href="#.">
-                    Buy Now
-                    <span>
-                        {% render 'button-arrow' %}
-                    </span>
-                </a>
+                {% if section.settings.subheading %}                        
+                    <h6>
+                        {{ section.settings.subheading }}
+                    </h6>
+                {% endif %}
+                {% if section.settings.heading %}                        
+                    <h2>
+                        {{- section.settings.heading -}}
+                    </h2>
+                {% endif %}
+                {% render 'anchor-snippet', button_text: section.settings.button_text, button_url: section.settings.button_url, show_arrow: true %}
             </div>
         </div>
     </div>

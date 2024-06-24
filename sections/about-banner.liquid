@@ -1,16 +1,17 @@
-<section class="about-banner-section">
+    <section class="about-banner-section">
     <div class="about-banner-main">
         <div class="about-banner-flex flex-class">
             <div class="about-banner-left">
                 <div class="about-banner-content">
-                    <h1>About Us</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+                    <h1> {{- page.title -}} </h1>
+                    <div class="richtext-content">
+                        {{ page.content }}
+                    </div>
                 </div>
             </div>
             <div class="about-banner-right">
                 <div class="about-banner-image">
-                    <img src="./images/about.png" alt="Image">
+                    {% render 'image-snippet', image: section.settings.image, lazyload: 'eager'  %}
                 </div>
             </div>
         </div>
@@ -21,6 +22,12 @@
 {% schema %}
     {
         "name" : "Banner",
-        "settings": []
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            }
+        ]
     }
 {% endschema %}

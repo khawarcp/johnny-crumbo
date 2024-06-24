@@ -2,16 +2,19 @@
     <div class="container">
         <div class="home-welcome-main">
             <div class="home-welcome-flex flex-class">
-                <div class="home-welcome-left">
-                    <h2>Welcome to Johnny Crumbo!</h2>
+                <div class="home-welcome-left">                    
+                    {% if section.settings.heading %}                        
+                        <h2>
+                            {{ section.settings.heading }}
+                        </h2>
+                    {% endif %}
                 </div>
                 <div class="home-welcome-right">
                     <div class="home-welcome-content">
-                        <p>We're more than just a clothing brand - we're on a mission to make a difference. A percentage of every purchase goes towards supporting organizations dedicated to the welfare of cats and dogs. With your help, we can ensure that every pet receives the care and love they deserve.</p>
-                        <p>Join us in our cause and shop now to make a difference in the lives of our furry friends. Together, let's create a world where every pet has a warm bed & a loving home.</p>
+                       {{ section.settings.text }}
                     </div>
                     <div class="home-welcome-readmore">
-                        <a href="#.">Read More</a>
+                        {% render 'anchor-snippet', button_text: section.settings.button_text, button_url: section.settings.button_url, show_arrow: false %}
                     </div>
                 </div>
             </div>

@@ -3,31 +3,195 @@
     "about-banner": {
       "type": "about-banner",
       "settings": {
+        "image": "shopify:\/\/shop_images\/about.png"
       }
     },
     "about-marquee": {
       "type": "about-marquee",
       "settings": {
+        "marquee": "We're more than just a clothing brand •"
       }
     },
     "about-richtext": {
       "type": "about-richtext",
       "settings": {
+        "text": "<h2>About johnny crumbo<\/h2><p>We're more than just a clothing brand - we're on a mission to make a difference. A percentage of every purchase goes towards supporting organizations dedicated to the welfare of cats and dogs. With your help, we can ensure that every pet receives the care and love they deserve.<\/p>"
       }
     },
     "about-founder": {
       "type": "about-founder",
       "settings": {
+        "image": "shopify:\/\/shop_images\/founder.png",
+        "name": "Hormoz Barandar",
+        "post": "President & Co-Founder",
+        "signature_image": "shopify:\/\/shop_images\/signature.png",
+        "text": "<h2>Founder of  johnny crumbo<\/h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.<\/p><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<\/p>"
       }
     },
     "about-mission": {
       "type": "about-mission",
       "settings": {
+        "text": "<h2>OUr mission<\/h2><p>At Johny Crumbo our mission to inspire and empower our customers to Buy their product with confidence and style. We believe that everyone deserves to buy their best selves, and we're here to provide the tools and support to make that happen.<\/p> <p>Through our carefully curated selection of products, we aim to our mission remains the same to Provide you on your journey towards desired result.<\/p>"
       }
     },
     "about-video": {
       "type": "about-video",
       "settings": {
+        "video": "shopify:\/\/files\/videos\/dummy-video.mp4",
+        "cover_image": "shopify:\/\/shop_images\/video-poster.png"
+      }
+    },
+    "index_testimonials_NMmWbG": {
+      "type": "index-testimonials",
+      "blocks": {
+        "item_MJ3EQV": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_q8prnL": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_xzQ4cH": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_f8B6Y3": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_d9ibpM": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_U3B39f": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_nJyhKj": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_yGKRYi": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_ndnaEE": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_mN6LAR": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_RHHWAB": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_C4XfpL": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_MJ3EQV",
+        "item_q8prnL",
+        "item_xzQ4cH",
+        "item_f8B6Y3",
+        "item_d9ibpM",
+        "item_U3B39f",
+        "item_nJyhKj",
+        "item_yGKRYi",
+        "item_ndnaEE",
+        "item_mN6LAR",
+        "item_RHHWAB",
+        "item_C4XfpL"
+      ],
+      "settings": {
+        "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at porta arcu, id hendrerit est. Maecenas id dignissim dolor. Sed lorem ante,",
+        "review_heading": "Hear From Our Customers"
+      }
+    },
+    "index_blogposts_ywH9HA": {
+      "type": "index-blogposts",
+      "settings": {
+        "heading": "Select Journal",
+        "blog": "news",
+        "show_excerpt": false,
+        "button_text": "View All Blogs",
+        "button_url": ""
       }
     }
   },
@@ -37,6 +201,8 @@
     "about-richtext",
     "about-founder",
     "about-mission",
-    "about-video"
+    "about-video",
+    "index_testimonials_NMmWbG",
+    "index_blogposts_ywH9HA"
   ]
 }

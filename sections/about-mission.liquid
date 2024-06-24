@@ -1,18 +1,25 @@
+{% if section.settings.text != blank %}
 <section class="our-mission-section">
     <div class="container">
         <div class="our-mission-main">
             <div class="our-mission-content">
-                <h2>OUr mission</h2>
-                <p>At Johny Crumbo our mission to inspire and empower our customers to Buy their product with confidence and style. We believe that everyone deserves to buy their best selves, and we're here to provide the tools and support to make that happen.</p>
-                <p>Through our carefully curated selection of products, we aim to our mission remains the same to Provide you on your journey towards desired result.</p>
+                {{ section.settings.text }}
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 
 {% schema %}
     {
         "name" : "Mission",
-        "settings": []
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<h2>OUr mission</h2><p>At Johny Crumbo our mission to inspire and empower our customers to Buy their product with confidence and style. We believe that everyone deserves to buy their best selves, and we're here to provide the tools and support to make that happen.</p> <p>Through our carefully curated selection of products, we aim to our mission remains the same to Provide you on your journey towards desired result.</p>"
+            }
+        ]
     }
 {% endschema %}

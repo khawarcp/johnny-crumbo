@@ -3,22 +3,24 @@
         <div class="about-founder-flex flex-class">
             <div class="about-founder-left">
                 <div class="about-founder-image">
-                    <img src="./images/founder.png" alt="Image">
+                    {% render 'image-snippet', image: section.settings.image, lazyload: 'lazy'  %}
                 </div>
             </div>
             <div class="about-founder-right">
                 <div class="about-founder-content">
-                    <h2>Founder of  johnny crumbo</h2>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                    <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    {{ section.settings.text }}
                 </div>
                 <div class="about-founder-info">
                     <div class="founder-name-role">
-                        <h4>Hormoz Barandar </h4>
-                        <h5>President & Co-Founder</h5>
+                        {% if section.settings.name != blank %}                            
+                            <h4> {{ section.settings.name }} </h4>
+                        {% endif %}
+                        {% if section.settings.post != blank %}                            
+                            <h5> {{ section.settings.post }} </h5>
+                        {% endif %}
                     </div>
                     <div class="founder-sign">
-                        <img src="./images/signature.png" alt="Image">
+                        {% render 'image-snippet-np', image: section.settings.signature_image , imageURL: true, lazyload: 'lazy'  %}
                     </div>
                 </div>
             </div>
@@ -29,6 +31,35 @@
 {% schema %}
     {
         "name" : "Founder",
-        "settings": []
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image"
+            },
+            {
+                "type": "text",
+                "id": "name",
+                "label": "Name",
+                "default": "Hormoz Barandar"
+            },
+            {
+                "type": "text",
+                "id": "post",
+                "label": "Designation",
+                "default": "President & Co-Founder"
+            },
+            {
+                "type": "image_picker",
+                "id": "signature_image",
+                "label": "Signature Image"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text",
+                "default": "<h2>Founder of  johnny crumbo</h2> <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p><p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>"
+            }
+        ]
     }
 {% endschema %}

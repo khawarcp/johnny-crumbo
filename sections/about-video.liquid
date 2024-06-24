@@ -1,12 +1,22 @@
 <section class="about-video-section">
     <div class="about-video-main">
         <div class="about-video-container">
-            <video poster="./images/video-poster.png" id="about-video" controls>
-                <source src="./video/dummy-video.mp4">
-            </video>
+            {% assign video_sources =  section.settings.video.sources %}
+            {% assign video_url = "" %}
+
+            {% for source in video_sources %}
+            {% if source.format == "mp4" %}
+                {% assign video_url = source.url %}
+            {% endif %}
+            {% endfor %}
+
+            
+            <video poster="{{ section.settings.cover_image | image_url  }}" id="about-video" controls>
+            <source src="{{ video_url }}">               
+            </video>                    
             <div class="video-play-button">
                 <button type="button" onclick="playVideo()">
-                    <img src="./images/play-icon.svg" alt="Play">
+                    {% render 'image-snippet-np', image: 'play-icon.svg', alt: 'Play' , assetURL: true, lazyload: 'lazy'  %}
                 </button>
             </div>
         </div>
@@ -16,6 +26,17 @@
 {% schema %}
     {
         "name" : "Video",
-        "settings": []
+        "settings": [
+            {
+                "type": "video",
+                "id": "video",
+                "label": "t:sections.video.settings.video.label"
+            },
+            {
+                "type": "image_picker",
+                "id": "cover_image",
+                "label": "t:sections.video.settings.cover_image.label"
+            }
+        ]
     }
 {% endschema %}

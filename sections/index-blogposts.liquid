@@ -1,89 +1,62 @@
+{% assign blog = section.settings.blog %}
+{% if blog != blank %}
 <section class="blogs-section">
     <div class="container">
         <div class="blogs-head section-head">
-            <h2>Select Journal</h2>
+            {% if section.settings.heading %}                        
+                <h2>
+                    {{- section.settings.heading -}}
+                </h2>
+            {% endif %}
         </div>
+        
         <div class="blogs-container">
             <div class="blogs-flex flex-class">
-                <div class="blog-single">
-                    <a href="#.">
-                        <div class="blog-featured-image">
-                            <img src="./images/blog-1.png" alt="Image">
-                            <div class="blog-tag-cat">
-                                <span>tips</span>
+                {% for article in blog.articles %}                  
+                    <div class="blog-single">
+                        <a href="{{ article.url }}">
+                            <div class="blog-featured-image">
+                                {% render 'image-snippet', image: article.image, lazyload: 'lazy'  %}
+                                <div class="blog-tag-cat">
+                                    <span>{{ blog.all_tags.first }}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="blogs-info">
-                            <h2>Accessorizing 101: Elevate Your Casual Look</h2>
-                            <div class="blogs-meta flex-class">
-                                <h6>byEmily Thompson</h6>
-                                <h6>August 31, 2023</h6>
+                            <div class="blogs-info">
+                                <h2> {{ article.title }} </h2>
+                                <div class="blogs-meta flex-class">
+                                    <h6>by {{ article.author }} </h6>
+                                    <h6>{{ article.published_at | time_tag: format: 'date' }}</h6>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="blog-single">
-                    <a href="#.">
-                        <div class="blog-featured-image">
-                            <img src="./images/blog-2.png" alt="Image">
-                            <div class="blog-tag-cat">
-                                <span>tips</span>
-                            </div>
-                        </div>
-                        <div class="blogs-info">
-                            <h2>Accessorizing 101: Elevate Your Casual Look</h2>
-                            <div class="blogs-meta flex-class">
-                                <h6>byEmily Thompson</h6>
-                                <h6>August 31, 2023</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="blog-single">
-                    <a href="#.">
-                        <div class="blog-featured-image">
-                            <img src="./images/blog-3.png" alt="Image">
-                            <div class="blog-tag-cat">
-                                <span>tips</span>
-                            </div>
-                        </div>
-                        <div class="blogs-info">
-                            <h2>Accessorizing 101: Elevate Your Casual Look</h2>
-                            <div class="blogs-meta flex-class">
-                                <h6>byEmily Thompson</h6>
-                                <h6>August 31, 2023</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="blog-single">
-                    <a href="#.">
-                        <div class="blog-featured-image">
-                            <img src="./images/blog-1.png" alt="Image">
-                            <div class="blog-tag-cat">
-                                <span>tips</span>
-                            </div>
-                        </div>
-                        <div class="blogs-info">
-                            <h2>Accessorizing 101: Elevate Your Casual Look</h2>
-                            <div class="blogs-meta flex-class">
-                                <h6>byEmily Thompson</h6>
-                                <h6>August 31, 2023</h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                            {%- if section.settings.show_excerpt -%}
+                                {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                                  <p class="article-card__excerpt rte-width">
+                                    {%- if article.excerpt.size > 0 -%}
+                                      {{ article.excerpt | strip_html | truncatewords: 30 }}
+                                    {%- else -%}
+                                      {{ article.content | strip_html | truncatewords: 30 }}
+                                    {%- endif -%}
+                                  </p>
+                                {%- endif -%}
+                                <div class="article-card__footer">
+                                  {%- if article.comments_count > 0 and blog.comments_enabled? -%}
+                                    <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
+                                  {%- endif -%}
+                                </div>
+                              {%- endif -%}
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
             <div class="blogs-see-all">
-                <a href="#.">
-                   <span>View All Blogs</span>
+                <a href="{{ section.settings.button_url | default: blog.url }}">
+                   <span>{{ section.settings.button_text }}</span>
                 </a>
             </div>
         </div>
     </div>
 </section>
-
-
+{% endif %}
 {% schema %}
     {
         "name" : "Blog Posts",
@@ -98,6 +71,12 @@
                 "type": "blog",
                 "id": "blog",
                 "label": "Blog"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_excerpt",
+                "label": "Show Excerpt",
+                "default": false
             },
             {
                 "type": "header",

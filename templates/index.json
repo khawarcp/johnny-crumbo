@@ -3,43 +3,243 @@
     "index_banner_y7z3tj": {
       "type": "index-banner",
       "settings": {
+        "heading": "cheeky merch inspired by <span>four-legged<\/span> friends",
+        "subheading": "Shop cozy hoodies, stylish caps and shirts, we've got everything you need to show off your passion for pets.",
+        "image": "shopify:\/\/shop_images\/banner-person.png",
+        "bg_image": "shopify:\/\/shop_images\/banner-without-overlay.png",
+        "button_text": "Shop Now",
+        "button_url": "shopify:\/\/collections\/all"
       }
     },
     "index_collection_4M9FQW": {
       "type": "index-collection",
       "settings": {
-        "class": ""
+        "class": "",
+        "heading": "Sale Up to 50%",
+        "collection": ""
       }
     },
     "index_richtext_DmXnnw": {
       "type": "index-richtext",
       "settings": {
+        "heading": "Welcome to Johnny Crumbo!",
+        "text": "<p>We're more than just a clothing brand - we're on a mission to make a difference. A percentage of every purchase goes towards supporting organizations dedicated to the welfare of cats and dogs. With your help, we can ensure that every pet receives the care and love they deserve.<\/p><p>Join us in our cause and shop now to make a difference in the lives of our furry friends. Together, let's create a world where every pet has a warm bed & a loving home.<\/p>",
+        "button_text": "Read More",
+        "button_url": "shopify:\/\/pages\/about-us"
       }
     },
     "index_collection_grid_bDNFVi": {
       "type": "index-collection-grid",
+      "blocks": {
+        "block_RkMXJE": {
+          "type": "block",
+          "settings": {
+            "heading": "Johny Crumbo T-Shirt",
+            "subtitle": "T-Shirt",
+            "image": "shopify:\/\/shop_images\/collection-1.png",
+            "button_text": "Buy Now",
+            "button_url": "shopify:\/\/collections\/pets"
+          }
+        },
+        "block_PXecjm": {
+          "type": "block",
+          "settings": {
+            "heading": "Johny Crumbo T-Shirt",
+            "subtitle": "T-Shirt",
+            "image": "shopify:\/\/shop_images\/collection-2.png",
+            "button_text": "Buy Now",
+            "button_url": "shopify:\/\/collections\/kids"
+          }
+        },
+        "block_TCYTrQ": {
+          "type": "block",
+          "settings": {
+            "heading": "Johny Crumbo T-Shirt",
+            "subtitle": "T-Shirt",
+            "image": "shopify:\/\/shop_images\/collection-3.png",
+            "button_text": "Buy Now",
+            "button_url": "shopify:\/\/collections\/accessories"
+          }
+        }
+      },
+      "block_order": [
+        "block_RkMXJE",
+        "block_PXecjm",
+        "block_TCYTrQ"
+      ],
       "settings": {
+        "heading": "Sale Up to 50%"
       }
     },
     "index_collection_i3CQbr": {
       "type": "index-collection",
       "settings": {
-        "class": "feature-collection-second"
+        "class": "feature-collection-second",
+        "heading": "Sale Up to 50%",
+        "collection": ""
       }
     },
     "index_testimonials_9dfCty": {
       "type": "index-testimonials",
+      "blocks": {
+        "item_UwLqEP": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_AwKY8a": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_6tbjHP": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_bdBbE9": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_zbtqAM": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_gd3hYP": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_zq6xhK": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_ipPQPp": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_iAVmyz": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        },
+        "item_8HUmAn": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-1.png"
+          }
+        },
+        "item_f3TFDQ": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-2.png"
+          }
+        },
+        "item_k9mydJ": {
+          "type": "item",
+          "settings": {
+            "comment": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!<\/p>",
+            "name": "Sarah",
+            "show_verfied": true,
+            "verfied_text": "verified customer",
+            "image": "shopify:\/\/shop_images\/testimonial-3.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_UwLqEP",
+        "item_AwKY8a",
+        "item_6tbjHP",
+        "item_bdBbE9",
+        "item_zbtqAM",
+        "item_gd3hYP",
+        "item_zq6xhK",
+        "item_ipPQPp",
+        "item_iAVmyz",
+        "item_8HUmAn",
+        "item_f3TFDQ",
+        "item_k9mydJ"
+      ],
       "settings": {
+        "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at porta arcu, id hendrerit est. Maecenas id dignissim dolor. Sed lorem ante,",
+        "review_heading": "Hear From Our Customers"
       }
     },
     "index_hero_N7BYqL": {
       "type": "index-hero",
       "settings": {
+        "heading": "Johny Crumbo T-Shirt",
+        "subheading": "T-Shirt",
+        "image": "shopify:\/\/shop_images\/inner-banner.png",
+        "button_text": "Buy Now",
+        "button_url": "shopify:\/\/collections\/pets"
       }
     },
     "index_blogposts_c3prjD": {
       "type": "index-blogposts",
       "settings": {
+        "heading": "Select Journal",
+        "blog": "news",
+        "show_excerpt": false,
+        "button_text": "View All Blogs",
+        "button_url": ""
       }
     }
   },

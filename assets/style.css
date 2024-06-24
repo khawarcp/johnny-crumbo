@@ -2,8 +2,8 @@
 
 @font-face {
     font-family: 'Baton';
-    src: url('../fonts/Baton/Baton-Bold.woff2') format('woff2'),
-        url('../fonts/Baton/Baton-Bold.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Baton-Bold.woff2?v=1719214306') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Baton-Bold.woff?v=1719214306') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -11,8 +11,8 @@
 
 @font-face {
     font-family: 'Baton';
-    src: url('../fonts/Baton/Baton-Medium.woff2') format('woff2'),
-        url('../fonts/Baton/Baton-Medium.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Baton-Medium.woff2?v=1719214306') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Baton-Medium.woff?v=1719214306') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -20,8 +20,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('../fonts/Satoshi/Satoshi-Black.woff2') format('woff2'),
-        url('../fonts/Satoshi/Satoshi-Black.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Black.woff2?v=1719214535') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Black.woff?v=1719214535') format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
@@ -29,8 +29,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('../fonts/Satoshi/Satoshi-Bold.woff2') format('woff2'),
-        url('../fonts/Satoshi/Satoshi-Bold.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Bold.woff2?v=1719214536') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Bold.woff?v=1694990505') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -38,8 +38,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('../fonts/Satoshi/Satoshi-Light.woff2') format('woff2'),
-        url('../fonts/Satoshi/Satoshi-Light.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Light.woff2?v=1719214536') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Light.woff?v=1719214536') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -47,8 +47,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('../fonts/Satoshi/Satoshi-Medium.woff2') format('woff2'),
-        url('../fonts/Satoshi/Satoshi-Medium.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Medium.woff2?v=1719214536') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Medium.woff?v=1719214536') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -56,8 +56,8 @@
 
 @font-face {
     font-family: 'Satoshi';
-    src: url('../fonts/Satoshi/Satoshi-Regular.woff2') format('woff2'),
-        url('../fonts/Satoshi/Satoshi-Regular.woff') format('woff');
+    src: url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Regular.woff2?v=1719214535') format('woff2'),
+        url('https://cdn.shopify.com/s/files/1/0786/7377/2855/files/Satoshi-Regular.woff?v=1694990471') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

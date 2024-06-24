@@ -2,131 +2,58 @@
     <div class="container">
         <div class="customer-testimonials-main">
             <div class="customer-testimonials-head">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at porta arcu, id hendrerit est. Maecenas id dignissim dolor. Sed lorem ante,</h2>
+                {% if section.settings.heading != blank %}                        
+                    <h2>
+                        {{- section.settings.heading -}}
+                    </h2>
+                {% endif %}
             </div>
             <div class="customer-testimonials-container">
                 <div class="customer-testimonials-flex flex-class">
                     <div class="customer-testimonials-left">
                         <div class="customer-testimonials-images-slider swiper-container">
                             <div class="swiper-wrapper">
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-1.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-2.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-3.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-1.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-2.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-3.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-1.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-2.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-3.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-1.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-2.png" alt="Image">
-                                </div>
-                                <div class="customer-testimonials-image-slide swiper-slide">
-                                    <img src="./images/testimonial-3.png" alt="Image">
-                                </div>
+                                {% for block in section.blocks %}
+                                    {% case block.type %}
+                                        {% when 'item' %}
+                                            {% if block.settings.comment != blank %} 
+                                                <div class="customer-testimonials-image-slide swiper-slide">
+                                                    {% render 'image-snippet', image: block.settings.image, lazyload: 'lazy'  %}
+                                                </div>
+                                            {% endif %}
+                                 {% endcase %}
+                             {% endfor %}                        
                             </div>
                         </div>
                     </div>
                     <div class="customer-testimonials-right">
                         <div class="testimonial-heading">
-                            <h2>Hear From Our Customers</h2>
+                            {% if section.settings.review_heading != blank %}                        
+                                <h2>
+                                    {{- section.settings.review_heading -}}
+                                </h2>
+                            {% endif %}
                         </div>
                         <div class="testimonial-content-container">
                             <div class="testimonial-content-slider swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-content-slide swiper-slide">
-                                        <p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>
-                                        <div class="testimonial-info">
-                                            <h6>Sarah - <span>verified customer</span></h6>
-                                        </div>
-                                    </div>
+                                    {% for block in section.blocks %}
+                                        {% case block.type %}
+                                            {% when 'item' %}
+                                                {% if block.settings.comment != blank %} 
+                                                    <div class="testimonial-content-slide swiper-slide">
+                                                        {{ block.settings.comment }}
+                                                        <div class="testimonial-info">
+                                                            <h6> {{ block.settings.name }}
+                                                                {% if block.settings.show_verfied %}
+                                                                 - <span> {{ block.settings.verfied_text }}</span>
+                                                                {% endif %}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                     {% endcase %}
+                                 {% endfor %} 
                                 </div>
                                 <div class="testimonials-controllers">
                                     <div class="testimonials-slider-arrows">
@@ -144,42 +71,16 @@
                         <div class="testimonials-thumbnails-container">
                             <div class="testimonials-thumbnails-slider swiper-container">
                                 <div class="swiper-wrapper">
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-1.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-2.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-3.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-1.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-2.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-3.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-1.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-2.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-3.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-1.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-2.png" alt="Image">
-                                    </div>
-                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
-                                        <img src="./images/testimonial-3.png" alt="Image">
-                                    </div>
+                                    {% for block in section.blocks %}
+                                        {% case block.type %}
+                                            {% when 'item' %}
+                                                {% if block.settings.comment != blank %} 
+                                                    <div class="customer-testimonials-thumbnail-slide swiper-slide">
+                                                        {% render 'image-snippet', image: block.settings.image, lazyload: 'lazy'  %}
+                                                    </div>
+                                                {% endif %}
+                                     {% endcase %}
+                                 {% endfor %}                                     
                                 </div>
                             </div>
                         </div>
@@ -189,6 +90,7 @@
         </div>
     </div>
 </section>
+
 
 {% schema %}
     {
@@ -205,6 +107,43 @@
                 "id": "review_heading",
                 "label": "Review Heading",
                 "default": "Hear From Our Customers"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "item",
+                "name": "Item",
+                "settings": [
+                    {
+                        "type": "richtext",
+                        "id": "comment",
+                        "label": "Comment",
+                        "default": "<p>Johnny Crumbo is not just a brand; it's a movement. As an animal lover, I appreciate their dedication to giving back to organizations that help our furry friends. The shirts are super soft, & I love showing off my support for pets everywhere. Keep up the great work, Johnny Crumbo!</p>"
+                    },
+                    {
+                        "type": "text",
+                        "id": "name",
+                        "label": "Name",
+                        "default": "Sarah"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "show_verfied",
+                        "label": "Show Verified Text",
+                        "default": true
+                    },
+                    {
+                        "type": "text",
+                        "id": "verfied_text",
+                        "label": "Verified Text",
+                        "default": "verified customer"
+                    },
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    }
+                ]
             }
         ],
         "presets": [
