@@ -1,0 +1,57 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Products for Everyday Fun",
+            "link": ""
+          }
+        },
+        "59d98bef-ec50-498c-b73f-9b3a1e7ee9ec": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "Welcome to the Johnny Crumbo Store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "59d98bef-ec50-498c-b73f-9b3a1e7ee9ec"
+      ],
+      "settings": {
+        "color_scheme": "background-1",
+        "show_line_separator": true,
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-center",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "reduce-logo-size",
+        "show_line_separator": true,
+        "color_scheme": "background-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 4,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
