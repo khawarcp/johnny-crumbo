@@ -276,7 +276,7 @@
       <script src="{{ 'localization-form.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.predictive_search_enabled -%}
+    {%- if settings.predictive_search_enabled and settings.enable_search -%}
       <link
         rel="stylesheet"
         href="{{ 'component-predictive-search.css' | asset_url }}"
@@ -359,7 +359,7 @@
       };
     </script>
 
-    {%- if settings.predictive_search_enabled -%}
+    {%- if settings.predictive_search_enabled and settings.enable_search -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 

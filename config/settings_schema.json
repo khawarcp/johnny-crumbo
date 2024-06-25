@@ -1374,6 +1374,12 @@
       },
       {
         "type": "checkbox",
+        "id": "enable_search",
+        "default": false,
+        "label": "Enable Search"
+      },
+      {
+        "type": "checkbox",
         "id": "predictive_search_enabled",
         "default": true,
         "label": "t:settings_schema.search_input.settings.predictive_search_enabled.label"
