@@ -1,0 +1,46 @@
+<div class="news-grid-column {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"  {% if settings.animations_reveal_on_scroll %}
+    data-cascade
+    style="--animation-order: {{ index }};"
+  {% endif %}>
+    <div class="news-single-image">
+        <a href="{{ article.url }}">
+            {% render 'image-snippet', image: article.image, lazyload: 'lazy'  %}
+        </a>
+    </div>
+    <div class="news-single-content">
+        <div class="news-single-meta">
+            {% if show_date %}
+                <span>{{ article.published_at | time_tag: format: 'date' }}</span>    
+            {% endif %}
+            {% if show_author %}
+                <span>Post by {{ article.author }}</span>  
+            {% endif %}            
+        </div>
+        <div class="news-single-content-flex flex-class">
+            <div class="news-single-info">
+                <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+            </div>
+            <div class="news-single-link">
+                <a href="{{ article.url }}">
+                    {% render 'image-snippet-np', image: 'right-arrow.svg', alt: 'navigation-arrow' , assetURL: true, lazyload: 'eager'  %}
+                </a>
+            </div>
+            {%- if show_excerpt -%}
+                {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                    <p class="article-card__excerpt rte-width">
+                    {%- if article.excerpt.size > 0 -%}
+                        {{ article.excerpt | strip_html | truncatewords: 30 }}
+                    {%- else -%}
+                        {{ article.content | strip_html | truncatewords: 30 }}
+                    {%- endif -%}
+                    </p>
+                {%- endif -%}
+                <div class="article-card__footer">
+                    {%- if article.comments_count > 0 and blog.comments_enabled? -%}
+                    <span>{{ 'blogs.article.comments' | t: count: article.comments_count }}</span>
+                    {%- endif -%}
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<section class="news-banner-section" style="background-image: url('{{ 'banner-without-overlay.png' | asset_url }}');">
+<div class="container">
+    <div class="news-banner-main">
+        <div class="news-banner-flex flex-class">
+            <div class="news-banner-left {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                <div class="news-banner-heading">
+                    <h1>{{ section.settings.heading }}</h1>
+                </div>
+            </div>
+            <div class="news-banner-right {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                <div class="news-banner-content">
+                    {{ section.settings.description }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+{% schema %}
+    {
+        "name": "Banner",
+        "settings": [
+            {
+                "type": "html",
+                "id": "heading",
+                "label": "Heading",
+                "default": "all the latest <span>news</span>"
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "Description",
+                "default": " <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>"
+            }
+        ]
+    }
+{% endschema %}

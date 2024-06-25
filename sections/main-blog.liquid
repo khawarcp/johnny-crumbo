@@ -1,53 +1,53 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
-
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-
 {%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
 
-    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
-      {%- for article in blog.articles -%}
-        <div
-          class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {%- render 'article-card',
-            article: article,
-            media_height: section.settings.image_height,
-            media_aspect_ratio: article.image.aspect_ratio,
-            show_image: section.settings.show_image,
-            show_date: section.settings.show_date,
-            show_author: section.settings.show_author,
-            show_excerpt: true
-          -%}
+  {%- for article in blog.articles -%}
+    {% if forloop.first %}      
+      <section class="featured-news-section {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="container">
+            <div class="featured-news-main">
+                <div class="featured-news-bg">                
+                    {% assign article_alt = article.image | default : article.title %}
+                    {% render 'image-snippet', image: article.image, alt: article_alt, lazyload: 'lazy'  %}
+                </div>
+                <div class="featured-news-container">
+                    <div class="featured-news-content flex-class">
+                        <div class="featured-news-info">
+                            <div class="news-meta">
+                                <span> {{ article.published_at |  time_tag: format: 'date' }} </span>
+                            </div>
+                            <h2><a href="{{ article.url }}"> {{ article.title }} </a></h2>
+                        </div>
+                        <div class="featured-news-link">
+                            <a href="{{ article.url }}">
+                            {% render 'image-snippet-np', image: 'right-arrow.svg', alt: 'navigation-arrow' , assetURL: true, lazyload: 'eager'  %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      {%- endfor -%}
-    </div>
+      </section>
+    {% endif %}
+  {%- endfor -%}
 
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
-    {%- endif -%}
-  </div>
+
+  
+    <section class="news-grid-section">
+      <div class="container">
+          <div class="news-grid-main">
+              <div class="news-grid-flex flex-class">
+                {%- for article in blog.articles offset: 1 -%}
+                 {% render 'custom-article-card', article: article, index: forloop.index, show_excerpt: section.settings.show_excerpt, show_date: section.settings.show_date,
+                 show_author: section.settings.show_author %}
+                {% endfor %}
+              </div>
+          </div>
+          {%- if paginate.pages > 1 -%}
+            {%- render 'pagination', paginate: paginate -%}
+          {%- endif -%}
+      </div>
+  </section>
+
 {%- endpaginate -%}
 
 {% schema %}
@@ -57,58 +57,6 @@
   "class": "section",
   "settings": [
     {
-      "type": "header",
-      "content": "t:sections.main-blog.settings.header.content"
-    },
-    {
-      "type": "select",
-      "id": "layout",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.main-blog.settings.layout.options__1.label"
-        },
-        {
-          "value": "collage",
-          "label": "t:sections.main-blog.settings.layout.options__2.label"
-        }
-      ],
-      "default": "collage",
-      "label": "t:sections.main-blog.settings.layout.label",
-      "info": "t:sections.main-blog.settings.layout.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_image",
-      "default": true,
-      "label": "t:sections.main-blog.settings.show_image.label"
-    },
-    {
-      "type": "select",
-      "id": "image_height",
-      "options": [
-        {
-          "value": "adapt",
-          "label": "t:sections.main-blog.settings.image_height.options__1.label"
-        },
-        {
-          "value": "small",
-          "label": "t:sections.main-blog.settings.image_height.options__2.label"
-        },
-        {
-          "value": "medium",
-          "label": "t:sections.main-blog.settings.image_height.options__3.label"
-        },
-        {
-          "value": "large",
-          "label": "t:sections.main-blog.settings.image_height.options__4.label"
-        }
-      ],
-      "default": "medium",
-      "label": "t:sections.main-blog.settings.image_height.label",
-      "info": "t:sections.main-blog.settings.image_height.info"
-    },
-    {
       "type": "checkbox",
       "id": "show_date",
       "default": true,
@@ -117,36 +65,18 @@
     {
       "type": "checkbox",
       "id": "show_author",
-      "default": false,
+      "default": true,
       "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "default": false,
+      "label": "Show Excerpt"
     },
     {
       "type": "paragraph",
       "content": "t:sections.main-blog.settings.paragraph.content"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
     }
   ]
 }

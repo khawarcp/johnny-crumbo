@@ -1,5 +1,8 @@
 {
   "sections": {
+    "blog-banner": {
+      "type": "blog-banner"
+    },
     "main": {
       "type": "main-blog",
       "settings": {
@@ -14,6 +17,7 @@
     }
   },
   "order": [
+    "blog-banner",
     "main"
   ]
 }

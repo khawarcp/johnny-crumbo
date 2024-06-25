@@ -1,3 +1,7 @@
 .article-card__excerpt {
     color: #6C757D;
 }
+
+.news-banner-heading h1 {
+    letter-spacing: normal;
+}
