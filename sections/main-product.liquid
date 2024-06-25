@@ -1,6 +1,6 @@
 <product-info
   id="MainProduct-{{ section.id }}"
-  class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}"
+  class="section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
   data-product-id="{{ product.id }}"
   data-update-url="true"
@@ -73,7 +73,7 @@
   {%- endif -%}
 
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
-  <div class="page-width">
+  <div class="gradient color-{{ section.settings.color_scheme }} container">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
         {% render 'product-media-gallery', variant_images: variant_images %}
@@ -96,6 +96,36 @@
                 >
                   {{- block.settings.text -}}
                 </p>
+              {%- when 'richtext' -%}
+                <div
+                  class="product-short-description"
+                  {{ block.shopify_attributes }}
+                >
+                  {{- block.settings.richtext -}}
+                </div>
+              {%- when 'title_price' -%}
+                <div class="product-name-price-container" {{ block.shopify_attributes }}>
+                      <div class="product-name-price-flex flex-class">
+                          <div class="product__title product-name-price-left">
+                            <h1>{{ product.title | escape }}</h1>
+                            <a href="{{ product.url }}" class="product__title">
+                              <h2 class="h1">
+                                {{ product.title | escape }}
+                              </h2>
+                            </a>
+                          </div>
+                          <div class="product-name-price-right">
+                              <div id="price-{{ section.id }}" role="status" class="product-prev-actual-price">
+                                {%- render 'price',
+                                  product: product,
+                                  use_variant: true,
+                                  show_badges: true,
+                                  price_class: 'price--large'
+                                -%}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               {%- when 'title' -%}
                 <div class="product__title" {{ block.shopify_attributes }}>
                   <h1>{{ product.title | escape }}</h1>
@@ -195,12 +225,6 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
-              {%- when 'description' -%}
-                {%- if product.description != blank -%}
-                  <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description }}
-                  </div>
-                {%- endif -%}
               {%- when 'sku' -%}
                 <p
                   class="product__sku{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -772,6 +796,22 @@
       "limit": 1
     },
     {
+      "type": "title_price",
+      "name": "Title with Price",
+      "limit": 1
+    },
+    {
+      "type": "richtext",
+      "name": "Richtext",
+      "settings": [
+        {
+          "type" : "richtext",
+          "id" : "richtext",
+          "label" : "Richtext"
+        }
+      ]
+    },
+    {
       "type": "sku",
       "name": "t:sections.main-product.blocks.sku.name",
       "limit": 1,
@@ -910,11 +950,6 @@
           "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
         }
       ]
-    },
-    {
-      "type": "description",
-      "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
     },
     {
       "type": "share",

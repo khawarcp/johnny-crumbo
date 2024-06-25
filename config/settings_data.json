@@ -9,8 +9,8 @@
     "body_scale": 100,
     "page_width": 1360,
     "spacing_sections": 0,
-    "spacing_grid_horizontal": 48,
-    "spacing_grid_vertical": 24,
+    "spacing_grid_horizontal": 24,
+    "spacing_grid_vertical": 48,
     "animations_reveal_on_scroll": true,
     "animations_hover_elements": "none",
     "buttons_border_thickness": 1,
@@ -22,7 +22,7 @@
     "buttons_shadow_blur": 5,
     "variant_pills_border_thickness": 1,
     "variant_pills_border_opacity": 55,
-    "variant_pills_radius": 40,
+    "variant_pills_radius": 0,
     "variant_pills_shadow_opacity": 0,
     "variant_pills_shadow_horizontal_offset": 0,
     "variant_pills_shadow_vertical_offset": 4,
@@ -37,7 +37,7 @@
     "card_style": "standard",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-2",
+    "card_color_scheme": "scheme-4",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -136,6 +136,14 @@
     "content_for_index": [
 
     ],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -172,24 +180,24 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#121212",
+          "background": "#ffffff",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#121212",
+          "text": "#000000",
+          "button": "#71c7f8",
+          "button_label": "#d71920",
           "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "shadow": "#71c7f8"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#334fb4",
+          "background": "#f8f9fa",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#334fb4",
-          "secondary_button_label": "#ffffff",
-          "shadow": "#121212"
+          "text": "#000000",
+          "button": "#d71920",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#000000",
+          "shadow": "#71c7f8"
         }
       }
     }

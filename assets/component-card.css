@@ -346,7 +346,7 @@
   top: calc(var(--border-width) * -1);
 }
 
-.card__heading a::after {
+/* .card__heading a::after {
   bottom: 0;
   content: '';
   left: 0;
@@ -354,7 +354,7 @@
   right: 0;
   top: 0;
   z-index: 1;
-}
+} */
 
 .card__heading a:after {
   outline-offset: 0.3rem;
@@ -378,6 +378,21 @@
 .card__heading a:focus {
   box-shadow: none;
   outline: 0;
+}
+
+.card-wrapper .quick-add {
+  grid-row-start: 4;
+  margin: 0;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.card-wrapper:hover .quick-add {
+  display: block;
 }
 
 @media screen and (min-width: 990px) {

@@ -1,0 +1,37 @@
+<section class="product-tabbing-section">
+    <div class="container">
+        <div class="product-tabbing-main">
+            <div class="product-tabbing-head">
+                <ul id="tabs-nav">
+                    <li><a href="#tab1">Description</a></li>                                            
+                        <li><a href="#tab2">Additional Information </a></li>
+                </ul>
+            </div>
+            <div class="product-tabbing-container">
+                <div class="product-tab" id="tab1">
+                   {{ product.description }}
+                </div>
+                <div class="product-tab" id="tab2">
+                    {% if section.settings.additional_information != blank %}
+                        {{ section.settings.additional_information }}
+                    {% else %}
+                        <h2> No Information</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+    {
+        "name": "Description Tabs",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "additional_information",
+                "label": "Additional Information"
+            }
+        ]
+    }
+{% endschema %}

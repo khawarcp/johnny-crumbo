@@ -5,3 +5,14 @@
 .news-banner-heading h1 {
     letter-spacing: normal;
 }
+
+.card-product-info-left h5 a {
+    font-family: 'Baton';
+    color: var(--black);
+}
+
+.related-products__heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Baton';
+}
