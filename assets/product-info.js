@@ -168,12 +168,31 @@ if (!customElements.get('product-info')) {
           this.pickupAvailability?.update(variant);
           this.updateOptionValues(html);
           this.updateURL(productUrl, variant?.id);
-          this.updateVariantInputs(variant?.id);
+          this.updateVariantInputs(variant?.id);      
 
           if (!variant) {
             this.setUnavailable();
             return;
           }
+
+          // change the images using variant selector
+          if(variant.featured_media && variant.featured_media.alt){
+            document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = "none");
+            const currentImageAlt = variant.featured_media.alt;
+            const thumbnailSelector = `[thumbnail-alt = '${ currentImageAlt }']`;
+            document.querySelectorAll(thumbnailSelector).forEach(img => img.style.display = "block");
+          }else{
+            document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = "block");
+          }
+
+          // retrieve the length of the images which are currently displaying
+            let images = document.querySelectorAll('img');
+            let blockImagesLength = Array.from(images).filter(img => {
+                return window.getComputedStyle(img).display === 'block';
+            }).length;
+            document.querySelector(".swiper-pagination-total").textContent = blockImagesLength
+
+
 
           this.updateMedia(html, variant?.featured_media?.id);
 
