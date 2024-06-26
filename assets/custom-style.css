@@ -16,3 +16,27 @@
     text-transform: uppercase;
     font-family: 'Baton';
 }
+
+.shopify-payment-button div[role=button] {
+    color: var(--new-red) !important;
+    background-color: var(--sky) !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 48px;
+    gap: 15px;
+    font-family: 'Satoshi';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+    border-color: transparent !important;
+}
+
+.shopify-payment-button .shopify-cleanslate  div[role=button]:hover {
+    background: var(--sky) !important;
+    border-color: transparent !important;
+}

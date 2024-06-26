@@ -1676,7 +1676,7 @@ p {
 }
 
 .quantity-buy-button-container {
-    padding: 40px 0px 0px;
+    padding: 40px 0px 0px;    
 }
 
 .quantity-button-flex {
@@ -1718,10 +1718,10 @@ p {
 }
 
 .buy-button {
-    width: calc(100% - 216px);
+    width: calc(100% - 208px);
 }
 
-.buy-button button {
+.buy-button button:not(.shopify-payment-button__more-options) {
     width: 100%;
     padding: 15px 48px;
     border-radius: 0px;
@@ -1739,29 +1739,34 @@ p {
     cursor: pointer;
     height: 50px;
     background-color: transparent;
+}
+
+.buy-button button.shopify-payment-button__more-options{
     position: relative;
+}
+.buy-button button.shopify-payment-button__more-options{
+    position: static;
+}
+.buy-button button.shopify-payment-button__more-options::after{
+    content: none;
 }
 
 .buy-paypal {
-    margin: 16px 0px 0px;
+    margin: 5px 0px 0px;
 }
 
 .buy-paypal a {
-    width: 100%;
-    background-color: var(--sky);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 48px;
-    gap: 15px;
+    color: var(--new-red) !important;
+    background-color: var(--sky) !important;
     font-family: 'Satoshi';
-    font-size: 12px;
+    font-size: 12px !important;
     font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    font-weight: 500 !important;
+    line-height: normal !important;
     letter-spacing: 0.72px;
     text-transform: uppercase;
-    color: var(--new-red);
+    border-color: transparent !important;
+    gap: 10px;
 }
 
 .product-main-flex {
@@ -3203,7 +3208,7 @@ p {
     }
     
     .buy-paypal {
-        margin: 10px 0px 0px;
+        margin: 5px 0px 0px;
     }
     
     .product-tab {

@@ -26,15 +26,10 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
+        "quantity_buttons_MWiffT": {
+          "type": "quantity_buttons",
           "settings": {
-          }
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
+            "show_dynamic_checkout": false,
             "show_gift_card_recipient": true
           }
         }
@@ -44,8 +39,7 @@
         "judge_me_reviews_preview_badge_zJEGGE",
         "richtext_qVPgLi",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons"
+        "quantity_buttons_MWiffT"
       ],
       "settings": {
         "enable_sticky_info": true,

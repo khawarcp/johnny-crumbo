@@ -12,6 +12,7 @@
   <variant-selects
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
+    class="product-variants-container"
     {{ block.shopify_attributes }}
   >
     {%- for option in product.options_with_values -%}
@@ -29,28 +30,36 @@
       -%}
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
-            <span data-selected-value>
-              {{- option.selected_value -}}
-            </span>
-          </legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
+          <div class="single-variant-container">
+              <div class="variant-label">
+                  <h6> {{ option.name }}:</h6>
+              </div>
+              <div class="variant-options color-variant-options">
+                {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block,
+                picker_type: picker_type
+              %}
+              </div>
+          </div>
         </fieldset>
+        
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
-          {% render 'product-variant-options',
-            product: product,
-            option: option,
-            block: block,
-            picker_type: picker_type
-          %}
+          <div class="single-variant-container">
+              <div class="variant-label">
+                  <h6> {{ option.name }}:</h6>
+              </div>
+              <div class="variant-options size-variant-options">
+                {% render 'product-variant-options',
+                  product: product,
+                  option: option,
+                  block: block,
+                  picker_type: picker_type
+                %}
+              </div>
+          </div>
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
