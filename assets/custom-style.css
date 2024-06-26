@@ -40,3 +40,8 @@
     background: var(--sky) !important;
     border-color: transparent !important;
 }
+
+.disabled {
+    pointer-events: none; 
+    opacity: 0.5; 
+}

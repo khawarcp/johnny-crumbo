@@ -175,23 +175,39 @@ if (!customElements.get('product-info')) {
             return;
           }
 
+          // retrieve the length of the images which are currently displaying
+          let images = document.querySelectorAll('.product-images-slide');
+          let blockImagesLength = Array.from(images).filter(img => {
+              return window.getComputedStyle(img).display === 'block';
+          }).length;
+
           // change the images using variant selector
           if(variant.featured_media && variant.featured_media.alt){
             document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = "none");
             const currentImageAlt = variant.featured_media.alt;
             const thumbnailSelector = `[thumbnail-alt = '${ currentImageAlt }']`;
             document.querySelectorAll(thumbnailSelector).forEach(img => img.style.display = "block");
+            document.querySelector(".swiper-pagination-total").textContent = blockImagesLength
           }else{
             document.querySelectorAll('[thumbnail-alt]').forEach(img => img.style.display = "block");
+            document.querySelector(".swiper-pagination-total").textContent = blockImagesLength
           }
 
-          // retrieve the length of the images which are currently displaying
-            let images = document.querySelectorAll('img');
-            let blockImagesLength = Array.from(images).filter(img => {
-                return window.getComputedStyle(img).display === 'block';
-            }).length;
-            document.querySelector(".swiper-pagination-total").textContent = blockImagesLength
-
+            
+          function handleSwiperButtonClick() {
+              document.querySelector(".swiper-pagination-total").textContent = blockImagesLength;
+              const currentSlider = document.querySelector(".swiper-pagination-current").textContent;
+              console.log(currentSlider)
+              if(currentSlider == '1'){
+                document.querySelector(".swiper-button-prev").classList.add("disabled")
+              }else{
+                document.querySelector(".swiper-button-prev").classList.remove("disabled")
+              }
+          }
+        
+        document.querySelector(".swiper-button-prev").addEventListener("click", handleSwiperButtonClick);
+        document.querySelector(".swiper-button-next").addEventListener("click", handleSwiperButtonClick);
+        
 
 
           this.updateMedia(html, variant?.featured_media?.id);

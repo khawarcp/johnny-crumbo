@@ -369,5 +369,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <script src="{{ 'script.js' | asset_url }}" defer></script>
+    {% if request.page_type == 'product' %}
+    <script src="{{ 'product-slider-pagination.js' | asset_url }}" defer></script>
+    {% endif %}
   </body>
 </html>
