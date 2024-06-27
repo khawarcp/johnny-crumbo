@@ -25,13 +25,10 @@
 
 <script src="{{ 'quantity-popover.js' | asset_url }}" defer="defer"></script>
 
-<cart-items class="gradient color-{{ section.settings.color_scheme }} isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
-  <div class="page-width">
+<cart-items class="isolate{% if cart == empty %} is-empty{% else %} section-{{ section.id }}-padding{% endif %}">
+  <div class="gradient color-{{ section.settings.color_scheme }} container">
     <div class="title-wrapper-with-link">
-      <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
-        {{- 'general.continue_shopping' | t -}}
-      </a>
+      <h1 class="title title--primary uppercase">{{ 'sections.cart.title' | t }}</h1>
     </div>
 
     <div class="cart__warnings">
@@ -58,7 +55,7 @@
               </caption>
               <thead>
                 <tr>
-                  <th class="caption-with-letter-spacing" colspan="2" scope="col">
+                  <th class="cart-media-space caption-with-letter-spacing" colspan="2" scope="col">
                     {{ 'sections.cart.headings.product' | t }}
                   </th>
                   <th class="medium-hide large-up-hide right caption-with-letter-spacing" colspan="1" scope="col">
@@ -69,9 +66,19 @@
                     colspan="1"
                     scope="col"
                   >
+                    Price
+                  </th>
+                  <th
+                    class="cart-items__heading--wide cart-items__heading--quantity small-hide caption-with-letter-spacing"
+                    colspan="1"
+                    scope="col"
+                  >
                     {{ 'sections.cart.headings.quantity' | t }}
                   </th>
                   <th class="small-hide right caption-with-letter-spacing" colspan="1" scope="col">
+                    {{ 'sections.cart.headings.total' | t }}
+                  </th>
+                  <th class="right caption-with-letter-spacing" colspan="1" scope="col">
                     {{ 'sections.cart.headings.total' | t }}
                   </th>
                 </tr>
@@ -84,7 +91,9 @@
                       {% if item.image %}
                         {% comment %} Leave empty space due to a:empty CSS display: none rule {% endcomment %}
                         <a href="{{ item.url }}" class="cart-item__link" aria-hidden="true" tabindex="-1"> </a>
-                        <div class="cart-item__image-container gradient global-media-settings">
+                        <div class="cart-item__image-container">
+                          <span class="cart-items-index"> {{ forloop.index }} </span>
+                          <div class=" gradient global-media-settings">
                           <img
                             src="{{ item.image | image_url: width: 300 }}"
                             class="cart-item__image"
@@ -93,6 +102,7 @@
                             width="150"
                             height="{{ 150 | divided_by: item.image.aspect_ratio | ceil }}"
                           >
+                          </div>
                         </div>
                       {% endif %}
                     </td>
@@ -224,6 +234,9 @@
                         assign has_vol_pricing = true
                       endif
                     -%}
+                    <td class="cart-item__quantity">
+                        {{ item.product.price |  money }}
+                    </td>
                     <td class="cart-item__quantity{% if has_qty_rules or has_vol_pricing %} cart-item__quantity--info{% endif %}">
                       <quantity-popover>
                         <div class="cart-item__quantity-wrapper quantity-popover-wrapper">
@@ -274,18 +287,6 @@
                               </button>
                             </quantity-input>
                           </div>
-                          <cart-remove-button
-                            id="Remove-{{ item.index | plus: 1 }}"
-                            data-index="{{ item.index | plus: 1 }}"
-                          >
-                            <a
-                              href="{{ item.url_to_remove }}"
-                              class="button button--tertiary"
-                              aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
-                            >
-                              {% render 'icon-remove' %}
-                            </a>
-                          </cart-remove-button>
                         </div>
                         {%- if has_qty_rules or has_vol_pricing -%}
                           <button
@@ -428,6 +429,20 @@
                           </div>
                         {%- endif -%}
                       </div>
+                    </td>
+                    <td class="cart-item__totals right">
+                      <cart-remove-button
+                      id="Remove-{{ item.index | plus: 1 }}"
+                      data-index="{{ item.index | plus: 1 }}"
+                    >
+                      <a
+                        href="{{ item.url_to_remove }}"
+                        class="button button--tertiary"
+                        aria-label="{{ 'sections.cart.remove_title' | t: title: item.title | escape }}"
+                      >
+                        {% render 'icon-remove' %}
+                      </a>
+                    </cart-remove-button>
                     </td>
                   </tr>
                 {%- endfor -%}

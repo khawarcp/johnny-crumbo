@@ -84,6 +84,7 @@ cart-items {
 .cart__note {
   height: fit-content;
   top: 2.5rem;
+  align-self: flex-start;
 }
 
 .cart__note label {
@@ -135,6 +136,7 @@ cart-items {
     display: flex;
     justify-content: space-between;
     border: 0;
+    align-items: flex-end;
   }
 
   .cart__footer-wrapper:last-child {

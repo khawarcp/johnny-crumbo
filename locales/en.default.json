@@ -281,11 +281,11 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "Cart",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
-      "estimated_total": "Estimated total",
-      "new_estimated_total": "New estimated total",
+      "estimated_total": "Subtotal",
+      "new_estimated_total": "New Subtotal",
       "note": "Order special instructions",
       "checkout": "Check out",
       "empty": "Your cart is empty",

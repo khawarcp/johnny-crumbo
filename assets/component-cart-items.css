@@ -81,12 +81,6 @@ cart-items .title-wrapper-with-link {
   display: block;
 }
 
-.cart-item__name:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
-  text-decoration-thickness: 0.2rem;
-}
-
 .cart-item__price-wrapper > * {
   display: block;
   margin: 0;
@@ -215,6 +209,10 @@ cart-remove-button .icon-remove {
   text-transform: uppercase;
 }
 
+.cart-media-space.caption-with-letter-spacing {
+  padding-left: 7rem;
+}
+
 @media screen and (max-width: 749px) {
   .cart-items,
   .cart-items thead,
@@ -303,7 +301,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-item__media {
-    width: 10rem;
+    width: 15rem;
   }
 
   .cart-item cart-remove-button {

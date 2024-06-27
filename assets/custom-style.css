@@ -45,3 +45,11 @@
     pointer-events: none; 
     opacity: 0.5; 
 }
+
+.cart-items-index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    align-self: center;
+}

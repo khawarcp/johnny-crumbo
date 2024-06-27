@@ -311,7 +311,7 @@ let productSlider = new Swiper('.product-images-slider', {
 	// },
 	loop: true,
 	// slidesPerView:'6',
-	allowTouchMove: true,
+	allowTouchMove: false,
 	disableOnInteraction: true,
 	breakpoints: {
 		600: {
