@@ -60,7 +60,14 @@
     "product-description-tabs": {
       "type": "product-description-tabs",
       "settings": {
-        "additional_information": ""
+        "additional_information": "",
+        "show_category": true,
+        "show_availability": true,
+        "text_style": "body",
+        "inventory_threshold": 10,
+        "show_inventory_quantity": false,
+        "show_sku": true,
+        "sku_text_style": "body"
       }
     },
     "1719320329e0db00c3": {

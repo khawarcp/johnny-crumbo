@@ -9,8 +9,101 @@
             </div>
             <div class="product-tabbing-container">
                 <div class="product-tab" id="tab1">
-                   {{ product.description }}
-                </div>
+                        {% if section.settings.show_availability or section.settings.show_sku or section.settings.show_category %}                    
+                        <div class="flex-class align-center inventory-details">
+                            {% if section.settings.show_availability %}                                
+                                <div class="flex-class align-center inventory-block-item inventory-block">
+                                    <div class="inventory-label">
+                                        Availability:
+                                    </div>
+                                    <div
+                                        class="product__inventory{% if section.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif section.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                                        id="Inventory-{{ section.id }}"
+                                        role="status"
+                                    >
+                                        {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+                                        {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                                            {%- if product.selected_or_first_available_variant.inventory_quantity
+                                                <= section.settings.inventory_threshold
+                                            -%}
+                                            <svg width="15" height="15" aria-hidden="true">
+                                                <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
+                                                <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
+                                            </svg>
+                                            {%- if section.settings.show_inventory_quantity -%}
+                                                {{-
+                                                'products.product.inventory_low_stock_show_count'
+                                                | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                                                -}}
+                                            {%- else -%}
+                                                {{- 'products.product.inventory_low_stock' | t -}}
+                                            {%- endif -%}
+                                            {%- else -%}
+                                            <svg width="15" height="15" aria-hidden="true">
+                                                <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                                                <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                                            </svg>
+                                            {%- if section.settings.show_inventory_quantity -%}
+                                                {{-
+                                                'products.product.inventory_in_stock_show_count'
+                                                | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                                                -}}
+                                            {%- else -%}
+                                                {{- 'products.product.inventory_in_stock' | t -}}
+                                            {%- endif -%}
+                                            {%- endif -%}
+                                        {%- else -%}
+                                            {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
+                                            <svg width="15" height="15" aria-hidden="true">
+                                                <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                                                <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                                            </svg>
+                                            {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
+                                            {%- else -%}
+                                            <svg width="15" height="15" aria-hidden="true">
+                                                <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                                                <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                                            </svg>
+                                            {{- 'products.product.inventory_out_of_stock' | t -}}
+                                            {%- endif -%}
+                                        {%- endif -%}
+                                        {%- endif -%}
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if product.selected_or_first_available_variant.sku.size != 0 and section.settings.show_sku %}                                
+                                <div class="flex-class align-center inventory-block-item sku-block">
+                                    <div class="sku-label">
+                                        {{ 'products.product.sku' | t }}:
+                                    </div>
+                                    <div class="product-sku">
+                                        <div
+                                            class="product__sku{% if section.settings.sku_text_style == 'uppercase' %} caption-with-letter-spacing{% elsif section.settings.sku_text_style == 'subtitle' %} subtitle{% endif %}"
+                                            id="Sku-{{ section.id }}"
+                                            role="status"
+                                            >
+                                            <span class="visually-hidden">{{ 'products.product.sku' | t }}:</span>
+                                            {{- product.selected_or_first_available_variant.sku -}}
+                                            </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if section.settings.show_category %}                                
+                                <div class="flex-class align-center inventory-block-item category-block">
+                                    <div class="category-label">
+                                        Categories:
+                                    </div>
+                                    <div class="product-category">
+                                        {{ product.type }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                        <div class="product-description">
+                            {{ product.description }}
+                        </div>
+                    </div>
                 <div class="product-tab" id="tab2">
                     {% if section.settings.additional_information != blank %}
                         {{ section.settings.additional_information }}
@@ -23,6 +116,8 @@
     </div>
 </section>
 
+
+
 {% schema %}
     {
         "name": "Description Tabs",
@@ -31,7 +126,89 @@
                 "type": "richtext",
                 "id": "additional_information",
                 "label": "Additional Information"
-            }
+            },
+            {
+                "type": "checkbox",
+                "id": "show_category",
+                "label": "Show Category",
+                "default": true
+            },
+            {
+                "type": "header",
+                "content": "t:sections.main-product.blocks.inventory.name"
+            },
+            {
+                "type": "checkbox",
+                "id": "show_availability",
+                "label": "Show Availability",
+                "default": true
+            },
+            {
+                "type": "select",
+                "id": "text_style",
+                "options": [
+                        {
+                            "value": "body",
+                            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+                        },
+                        {
+                            "value": "subtitle",
+                            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+                        },
+                        {
+                            "value": "uppercase",
+                            "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+                        }
+                    ],
+                    "default": "body",
+                    "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+                },
+                {
+                    "type": "range",
+                    "id": "inventory_threshold",
+                    "label": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.label",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "info": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.info",
+                    "default": 10
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_inventory_quantity",
+                    "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
+                    "default": true
+                },
+                {
+                    "type": "header",
+                    "content": "t:sections.main-product.blocks.sku.name"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "show_sku",
+                    "label": "Show SKU",
+                    "default": true
+                },
+                {
+                    "type": "select",
+                    "id": "sku_text_style",
+                    "options": [
+                        {
+                            "value": "body",
+                            "label": "t:sections.main-product.blocks.sku.settings.text_style.options__1.label"
+                        },
+                        {
+                            "value": "subtitle",
+                            "label": "t:sections.main-product.blocks.sku.settings.text_style.options__2.label"
+                        },
+                        {
+                            "value": "uppercase",
+                            "label": "t:sections.main-product.blocks.sku.settings.text_style.options__3.label"
+                        }
+                    ],
+                    "default": "body",
+                    "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
+                }      
         ]
     }
 {% endschema %}

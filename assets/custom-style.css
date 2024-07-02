@@ -53,3 +53,37 @@
     width: 100px;
     align-self: center;
 }
+
+.inventory-details.flex-class {
+    gap: 40px;
+    margin-bottom: 42px;
+}
+
+.inventory-block-item {
+    gap: 10px;
+}
+
+.category-label,
+.sku-label,
+.inventory-label {
+    color: #6C757D;
+    font-family: 'Satoshi';
+}
+
+.product__inventory, .product-sku, .product-category {
+    color: #000;
+    font-family: 'Satoshi';
+}
+
+
+@media screen and (max-width: 991px) {
+    .inventory-details.flex-class {
+        gap: 15px;        
+    }
+}
+@media screen and (max-width: 767px) {
+    .inventory-details.flex-class {
+        gap: 5px;
+        margin-bottom: 22px;
+    }
+}

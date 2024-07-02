@@ -1,18 +1,18 @@
 {
   "sections": {
     "blog-banner": {
-      "type": "blog-banner"
+      "type": "blog-banner",
+      "settings": {
+        "heading": "all the latest <span>news<\/span>",
+        "description": "<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<\/p>"
+      }
     },
     "main": {
       "type": "main-blog",
       "settings": {
-        "layout": "collage",
-        "show_image": true,
-        "image_height": "medium",
         "show_date": true,
-        "show_author": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_author": true,
+        "show_excerpt": false
       }
     }
   },

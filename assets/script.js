@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         nextEl: '.swiper-button-next-' + index,
                         prevEl: '.swiper-button-prev-' + index,
                     },
-                    speed: 3000,
+                    speed: 300,
                     loop: true,
                     allowTouchMove: true,
                     disableOnInteraction: true,
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Thumbnails Slider
     var thumbnailsSlider = new Swiper('.testimonials-thumbnails-slider', {
-        loop: true,
+        loop: false,
         spaceBetween: 33,
         slidesPerView: 2,
         centeredSlides: false,
@@ -384,6 +384,16 @@ $('#tabs-nav li').click(function(){
 
 
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    var video = document.getElementById("about-video");
+    var videoParent = document.querySelector(".about-video-container");
+
+    // Add an event listener for when the video ends
+    video.addEventListener('ended', function() {
+        videoParent.classList.remove("playing");
+    });
+});
 
 function playVideo() {
     var video = document.getElementById("about-video");
